@@ -1,6 +1,15 @@
-console.log(1000);
+let box; // Объявление переменной
+box = 10; // Инициализировали переменную
 
-console.log('text');
+let value = 'Very important value';
+
+
+
+
+/*
+console.log(box);
+
+console.log("text");
 
 console.log(true);
 console.log(false);
@@ -8,3 +17,4 @@ console.log(false);
 console.log(null);
 
 console.log(undefined);
+*/
