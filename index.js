@@ -1,11 +1,12 @@
-const num = 10;
-console.log(num, typeof num);
+console.log(1);
 
-const str = 'stringa';
-console.log(str, typeof str);
+const verdict = false;
 
-const nullValue = null;
-console.log(nullValue, typeof nullValue);
+if (verdict) {
+  console.log('ok. you are signed up');
+} else {
+  console.log("not ok. you are not signed up");
+}
 
-let undefinedValue;
-console.log(undefinedValue, typeof undefinedValue);
+
+console.log(3);
