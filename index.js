@@ -1,20 +1,15 @@
 let box; // Объявление переменной
 box = 10; // Инициализировали переменную
-
-let value = 'Very important value';
-
-
-
-
-/*
 console.log(box);
 
-console.log("text");
+let value = "Very important value";
+console.log(value);
 
-console.log(true);
-console.log(false);
+value = 90;
+console.log(value);
 
-console.log(null);
+const value2 = "Very important value 2";
+console.log(value2);
 
-console.log(undefined);
-*/
+value2 = 90;
+console.log(value2);
