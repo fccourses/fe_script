@@ -1,19 +1,11 @@
-let box; // Объявление переменной
+const num = 10;
+console.log(num, typeof num);
 
-console.log(ABRAKADABRA); // Код работает до первой ошибки
+const str = 'stringa';
+console.log(str, typeof str);
 
+const nullValue = null;
+console.log(nullValue, typeof nullValue);
 
-box = 10; // Инициализировали переменную
-console.log(box);
-
-let value = "Very important value";
-console.log(value);
-
-value = 90;
-console.log(value);
-
-const value2 = "Very important value 2";
-console.log(value2);
-
-value2 = 90;
-console.log(value2);
+let undefinedValue;
+console.log(undefinedValue, typeof undefinedValue);
