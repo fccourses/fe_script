@@ -1,3 +1,3 @@
-const result = 12 % 5;
+const result = 4100;
 
-console.log(result);
+console.log(result > 10 && result < 20);
