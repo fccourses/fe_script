@@ -1,11 +1,7 @@
-let box = 0;
+let test = 1,
+  iter = 10,
+  value = 100,
+  number = 1000,
+  string = "test";
 
-box += 7; // === box = box + 7;
-
-box -= 2; // === box = box - 2;
-
-box *= 2; // === box = box * 2;
-
-box /= 2; // === box = box / 2;
-
-console.log(box);
+console.log();
