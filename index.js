@@ -1,3 +1,3 @@
-const message = 'Маша сказала: \"Привет\"';
+const result = 12 % 5;
 
-console.log( message );
+console.log(result);
