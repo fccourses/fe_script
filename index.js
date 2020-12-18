@@ -1,3 +1,11 @@
-const result = -10;
+let box = 0;
 
-console.log(result > 10 || result < 20);
+box += 7; // === box = box + 7;
+
+box -= 2; // === box = box - 2;
+
+box *= 2; // === box = box * 2;
+
+box /= 2; // === box = box / 2;
+
+console.log(box);
