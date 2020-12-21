@@ -1,18 +1,24 @@
-const getSumOfTwo = function () { //function expression
+const userInput1 = +prompt("Введите число 1:");
+const userInput2 = +prompt("Введите число 2:");
 
-  const userInputNumber1 = +prompt("Введите число 1:");
-  const userInputNumber2 = +prompt("Введите число 2:");
+const getSumOfTwo = function () {
+  //function expression
+  const result = userInput1 + userInput2;
 
-  const result = userInputNumber1 + userInputNumber2;
-
-  const verdict = isNaN(result);
-
-  if (!verdict) {
-    alert("Сумма чисел: " + result);
-  } else {
-    alert("Вы ввели не число!");
-  }
-  
+  return result;
 };
 
-getSumOfTwo();
+const sum = getSumOfTwo();
+
+console.log(rest);
+
+console.log(sum);
+
+
+const washMachine = function (rpm, mode, temperature, powder, values) {
+  // do some stuff
+  // return clean stuff
+}
+
+const box = washMachine(800, 'soft', 35, 'Percil', 'clothers');
+
