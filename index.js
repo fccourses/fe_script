@@ -1,24 +1,11 @@
 const userInput1 = +prompt("Введите число 1:");
 const userInput2 = +prompt("Введите число 2:");
 
-const getSumOfTwo = function () {
+const getSumOfTwo = function (num1, num2) {
   //function expression
-  const result = userInput1 + userInput2;
-
-  return result;
+  return num1 + num2;
 };
 
-const sum = getSumOfTwo();
-
-console.log(rest);
+const sum = getSumOfTwo(userInput1, userInput2);
 
 console.log(sum);
-
-
-const washMachine = function (rpm, mode, temperature, powder, values) {
-  // do some stuff
-  // return clean stuff
-}
-
-const box = washMachine(800, 'soft', 35, 'Percil', 'clothers');
-
