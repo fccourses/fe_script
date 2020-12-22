@@ -1,21 +1,44 @@
-const userInput = prompt('Выберите позицию меню:\n1-Чай\n2-Кофе\n3-Капучино');
+/*
+  Таска на switch:
+  В переменной day лежит какое-то число из интервала от 1 до 31.
+  Определите в какую декаду месяца попадает это число 
+  (в первую, вторую или третью). 
+  Tip: break;
+*/
 
-debugger;
-
-switch (userInput) {
-  case '1': {
-    console.log('Вы выбрали Чай');
-    break;
+/* 
+  Напишите калькулятор. 2 Числа и операцию спрашивать у пользователя.
+*/
+const getDecade = function (day) {
+  const control = +day;
+  switch (control) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10: {
+      return 1;
+    }
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21: {
+      return 2;
+    }
+    default: {
+      return null;
+    }
   }
-  case '2': {
-    console.log('Вы выбрали Кофе');
-    break;
-  }
-  case '3': {
-    console.log('Вы выбрали Капучино');
-    break;
-  }
-  default: {
-    console.log('Вы ввели не верную позицию меню');
-  }
-}
+};
