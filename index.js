@@ -5,10 +5,6 @@
   (в первую, вторую или третью). 
   Tip: break;
 */
-
-/* 
-  Напишите калькулятор. 2 Числа и операцию спрашивать у пользователя.
-*/
 const getDecade = function (day) {
   const control = +day;
   switch (control) {
@@ -42,3 +38,41 @@ const getDecade = function (day) {
     }
   }
 };
+
+/* 
+  Напишите калькулятор. 2 Числа и операцию спрашивать у пользователя.
+*/
+const calculate = function (num1, num2, operation) {
+  if (isNaN(num1 - num2)) {
+    return false;
+  }
+
+  switch (operation) {
+    case '/': {
+      const result = num1 / num2;
+      return result;
+    }
+    case '*': {
+      const result = num1 * num2;
+      return result;
+    }
+    case '+': {
+      const result = num1 + num2;
+      return result;
+    }
+    case '-': {
+      const result = num1 - num2;
+      return result;
+    }
+    default: {
+      return null;
+    }
+  }
+};
+
+const userInput1 = +prompt('1');
+const userInput2 = +prompt('2');
+const sign = prompt('sign');
+
+const box = calculate(userInput1, userInput2, sign);
+console.log(box);
