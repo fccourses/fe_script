@@ -42,6 +42,20 @@ const getDecade = function (day) {
 /* 
   Напишите калькулятор. 2 Числа и операцию спрашивать у пользователя.
 */
+
+const sum = function (a, b) {
+  return a + b;
+};
+const sub = function (a, b) {
+  return a - b;
+};
+const mul = function (a, b) {
+  return a * b;
+};
+const div = function (a, b) {
+  return a / b;
+};
+
 const calculate = function (num1, num2, operation) {
   if (isNaN(num1 - num2)) {
     return false;
@@ -49,20 +63,16 @@ const calculate = function (num1, num2, operation) {
 
   switch (operation) {
     case '/': {
-      const result = num1 / num2;
-      return result;
+      return div(num1, num2);
     }
     case '*': {
-      const result = num1 * num2;
-      return result;
+      return mul(num1, num2);
     }
     case '+': {
-      const result = num1 + num2;
-      return result;
+      return sum(num1, num2);
     }
     case '-': {
-      const result = num1 - num2;
-      return result;
+      return sub(num1, num2);
     }
     default: {
       return null;
