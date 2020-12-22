@@ -1,17 +1,21 @@
-const userNumber = +prompt('Введите число:');
+const userInput = prompt('Выберите позицию меню:\n1-Чай\n2-Кофе\n3-Капучино');
 
 debugger;
 
-if (isNaN(userNumber)) {
-  console.log('Невалидное число');
-} else if (userNumber % 5 === 0) {
-  console.log('на 5 делится');
-} else if (userNumber % 3 === 0) {
-  console.log('на 3 делится');
-} else if (userNumber % 2 === 0) {
-  console.log('на 2 делится');
-} else {
-  console.log('не делиться ни на 5, ни на 3, ни на 2');
+switch (userInput) {
+  case '1': {
+    console.log('Вы выбрали Чай');
+    break;
+  }
+  case '2': {
+    console.log('Вы выбрали Кофе');
+    break;
+  }
+  case '3': {
+    console.log('Вы выбрали Капучино');
+    break;
+  }
+  default: {
+    console.log('Вы ввели не верную позицию меню');
+  }
 }
-
-console.log('end of script');
