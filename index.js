@@ -60,24 +60,29 @@ const calculate = function (num1, num2, operation) {
   if (isNaN(num1 - num2)) {
     return false;
   }
-
+  let f;
   switch (operation) {
     case '/': {
-      return div(num1, num2);
+      f = div;
+      break;
     }
     case '*': {
-      return mul(num1, num2);
+      f = mul;
+      break;
     }
     case '+': {
-      return sum(num1, num2);
+      f = sum;
+      break;
     }
     case '-': {
-      return sub(num1, num2);
-    }
-    default: {
-      return null;
+      f = sub;
+      break;
     }
   }
+  if (typeof f === 'function') {
+    return f(num1, num2);
+  }
+  return null;
 };
 
 const userInput1 = +prompt('1');
