@@ -19,17 +19,8 @@ const div = function (a, b) {
 
 const getUserInput = function () {
   const result = prompt('Введите что-нибудь');
-
-  /*  if (result) {
-    return result;
-  }
-  return 'Вы ничего не ввели'; */
-
-  const returnValue = result ? result : 'Вы ничего не ввели';
-
-  return returnValue;
+  return result;
 };
-
 const res = getUserInput();
 
-alert(res);
+console.log(res ? 'Вы ввели: ' + res : 'Вы ничего не ввели');
