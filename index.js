@@ -1,26 +1,19 @@
 'use strict';
 
-const res = highOrderFunction(15, 25, sub);
+let count = 0;
 
-console.log(res);
+while (true) {
+  count++;
 
-function highOrderFunction(num1, num2, functionToPerformTheOperation) {
-  const result = functionToPerformTheOperation(num1, num2);
-  return result;
+  if (count % 2 === 1) {
+    continue;
+  }
+
+  console.log(count); /* ТОлько чётные числа логировать */
+  
+  if (count > 10) {
+    break;
+  }
 }
 
-function sub(a, b) {
-  return a - b;
-}
-
-function mul(a, b) {
-  return a * b;
-}
-
-function div(a, b) {
-  return a / b;
-}
-
-function sum(a, b) {
-  return a + b;
-}
+console.log('end of loop');
