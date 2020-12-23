@@ -1,19 +1,17 @@
 'use strict';
-
+/*
+1. Спрашивать у пользователя пароль до тех пор,
+   пока он не введёт правильный
+   1.1 Ограничить кол-во попыток до 5
+*/
 let count = 0;
+while (count++ < MAX_TRY) {
+  const userInput = prompt('Pass here');
 
-while (true) {
-  count++;
-
-  if (count % 2 === 1) {
-    continue;
-  }
-
-  console.log(count); /* ТОлько чётные числа логировать */
-  
-  if (count > 10) {
+  if (userInput === GOOD_PASSWORD) {
     break;
   }
 }
 
-console.log('end of loop');
+/* 2. Найти факториал числа */
+
