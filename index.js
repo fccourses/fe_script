@@ -1,3 +1,4 @@
+'use strict';
 console.log(sum2(5, 5));
 
 const sum1 = function (a, b) {
