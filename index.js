@@ -1,24 +1,24 @@
 'use strict';
-console.log(sum2(5, 5));
 
-const sum1 = function (a, b) {
-  //function expression
-  return a + b;
-};
+console.log(sum(3, 7));
 
-const sub = function (a, b) {
+function sub(a, b) {
   return a - b;
-};
+}
 
-const mul = function (a, b) {
+function mul(a, b) {// pure func
   return a * b;
-};
+}
 
-const div = function (a, b) {
+function div(a, b) {
   return a / b;
-};
+}
 
-function sum2(a, b) {
-  // function declaration
+function sum(a, b) {
   return a + b;
+}
+
+function square(num) {// pure func
+  const result = mul(num, num);
+  return result;
 }
