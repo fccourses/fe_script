@@ -1,19 +1,19 @@
 'use strict';
 
-let global = 1;
+const res = highOrderFunction(15, 25, sub);
 
-console.log(square(3, 7));
+console.log(res);
 
-global = 10;
-
-console.log(square(3, 7));
+function highOrderFunction(num1, num2, functionToPerformTheOperation) {
+  const result = functionToPerformTheOperation(num1, num2);
+  return result;
+}
 
 function sub(a, b) {
   return a - b;
 }
 
 function mul(a, b) {
-  // pure func
   return a * b;
 }
 
@@ -23,13 +23,4 @@ function div(a, b) {
 
 function sum(a, b) {
   return a + b;
-}
-
-function square(num) {
-  // pure func
-  const result = mul(num, num);
-
-  console.log('1');
-
-  return result + global;
 }
