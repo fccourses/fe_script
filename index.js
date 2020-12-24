@@ -8,17 +8,10 @@ const cat = {
   age: 5,
   isSleeping: true,
   isMale: true,
+  run: function () {
+    return 'I AM RUNNING';
+  },
 };
 
-console.log(cat.amountOfLegs); //R
-
-cat.age++; //U
-cat.age = cat.age + 1;
-
-console.log(cat);
-
-cat.isSleeping = undefined; //bad delete
-
-delete cat.isSleeping; //D
-
-cat.amountOfLegs = 4;
+const res = cat.run();
+console.log(res);
