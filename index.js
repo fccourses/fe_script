@@ -26,26 +26,43 @@ for (let count = 0; count < MAX_TRY; count++) {
 /*          Функции:                    */
 /* 2. Найти факториал числа */
 
-function factorial(number) {
+function getFactorial(number) {
   if (number < 0) {
     return null;
   }
-
   if (number === 0) {
     return 1;
   }
-
   if (number > MAX_SAFE_FACTORIAL) {
     return false;
   }
-
-  let result = 1n;
-
+  let result = BigInt(1);
   for (let i = 1; i <= number; i++) {
     result *= BigInt(i);
   }
-
   return result;
 }
 
 /* 3. Возвести число в заданную степень(power) */
+
+function getPower(base, power) {
+  if (power < 0) {
+    const numberToCalcNegativePower = getPower(base, -power);
+    return 1 / numberToCalcNegativePower;
+  }
+
+  if (power === 0) {
+    return 1;
+  }
+  if (power === 1) {
+    return base;
+  }
+
+  let result = 1;
+
+  for (let i = 1; i <= power; i++) {
+    result *= base;
+  }
+
+  return result;
+}
