@@ -1,6 +1,7 @@
 'use strict';
 
-const cat = { //C
+const cat = {
+  //C
   name: 'Pushok',
   color: 'red',
   breed: 'Persian',
@@ -9,7 +10,7 @@ const cat = { //C
   isMale: true,
 };
 
-console.log(cat.age); //R
+console.log(cat.amountOfLegs); //R
 
 cat.age++; //U
 cat.age = cat.age + 1;
@@ -19,3 +20,5 @@ console.log(cat);
 cat.isSleeping = undefined; //bad delete
 
 delete cat.isSleeping; //D
+
+cat.amountOfLegs = 4;
