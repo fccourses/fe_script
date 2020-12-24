@@ -11,7 +11,50 @@ const cat = {
   run: function () {
     return 'I AM RUNNING';
   },
+  sleep: function () {
+    return 'ZZZZ.....';
+  },
+  meow: function () {
+    return 'MEOW!!!';
+  },
 };
 
-const res = cat.run();
-console.log(res);
+function Cat(name, color, breed, age, isSleeping, isMale) {
+  this.name = name;
+  this.color = color;
+  this.breed = breed;
+  this.age = age;
+  this.isSleeping = isSleeping;
+  this.isMale = isMale;
+  /* Methods */
+  this.run = function () {
+    return 'I AM RUNNING!';
+  };
+}
+
+const newCat = new Cat('Murzik', 'white', 'Spinx', 3, true, true);
+
+/* 1.
+Функция конструкор для создания пользователей: 
+name, surname, full name, age 
+*/
+
+/* 2.
+Функция конструктор для стран Country:
+name, population, area, density
+
+
+1. Посмотрите на плотность населения    - x
+2. Изменяете либо площадь, либо население
+3. Посмотрите на плотность населения    - y
+*/
+
+function Country(name, population, area) {
+  this.name = name;
+  this.population = population;
+  this.area = area;
+  this.getDensity = function () {
+    return this.population / this.area;
+  };
+}
+const ukr = new Country('Ukraine', 72_000_000, 576_000);
