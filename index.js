@@ -57,4 +57,35 @@ function Country(name, population, area) {
     return this.population / this.area;
   };
 }
+
 const ukr = new Country('Ukraine', 72_000_000, 576_000);
+
+/* Функция конструктор для авто:
+  name, maxSpeed, speed
+  .accelerate();
+  .deaccelerate();
+  .stop();
+
+*/
+
+function Auto(name, maxSpeed) {
+  this.name = name;
+  this.speed = 0;
+  this.maxSpeed = maxSpeed;
+
+  this.accelerate = function (value) {
+    if (value < 0) {
+      return false;
+    }
+    this.speed = this.speed + value;
+    if (this.speed > this.maxSpeed) {
+      return (this.speed = this.maxSpeed);
+    }
+    return this.speed;
+  };
+  this.stop = function () {
+    return (this.speed = 0);
+  };
+}
+
+const auto = new Auto('Bmw', 220);
