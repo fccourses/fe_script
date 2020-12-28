@@ -1,23 +1,24 @@
 'use strict';
 
 const user = {
-  firstName: 'Test',
-  lastName: 'Testovich',
-  age: 18,
-  isMale: true,
+  'favorite color': 'red',
+  0: 'test value',
+  2: 'value unique',
 };
 
-function sayHello(userObject) {
-  return `Hello, ${userObject.firstName} ${userObject.lastName} !!`;
-}
 
-/* Создать функцию createQuery, которая возвращает валидный url */
+/* Прочитали существующие свойства */
+console.log(user['0']);
+console.log(user['2']);
+console.log(user[0]);
+console.log(user[2]);
+console.log(user['favorite color']);
 
-const PROTOCOL = 'http://';
-const SERVER_IP = 'google.com';
+const test = 'favorite color';
+user[test];
+console.log(user[test]);
 
-function createQuery(absPath) {
-  return `${PROTOCOL}${SERVER_IP}${absPath}`;
-}
 
-createQuery('/pages/index.html');
+/* Создали новое свойство */
+const valueFromUser = 'tset';
+user[valueFromUser] = 3;
