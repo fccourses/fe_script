@@ -1,16 +1,23 @@
 'use strict';
 
-const a = +prompt('num1');
-const b = +prompt('num2');
+const user = {
+  firstName: 'Test',
+  lastName: 'Testovich',
+  age: 18,
+  isMale: true,
+};
 
-// alert(a + ' + ' + b + ' = ' + (a + b));
-alert(
-`${getDescription()}:
-${a} + ${b} = ${a + b}`
-);
-
-function getDescription(){
-  return 'Sum of these numbers'
+function sayHello(userObject) {
+  return `Hello, ${userObject.firstName} ${userObject.lastName} !!`;
 }
 
-console.log(` Sum of number: ${2 + 2} `);
+/* Создать функцию createQuery, которая возвращает валидный url */
+
+const PROTOCOL = 'http://';
+const SERVER_IP = 'google.com';
+
+function createQuery(absPath) {
+  return `${PROTOCOL}${SERVER_IP}${absPath}`;
+}
+
+createQuery('/pages/index.html');
