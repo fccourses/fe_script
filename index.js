@@ -9,6 +9,13 @@ function MyArrayProto() {
     this[this.length] = item;
     return ++this.length;
   };
+
+  this.pop = function () {
+    /* Исправить отрицательный length */
+    const lastItem = this[this.length - 1];
+    delete this[--this.length];
+    return lastItem;
+  };
 }
 
 /* Объекты с данными */
@@ -21,5 +28,3 @@ MyArray.prototype = new MyArrayProto();
 
 const myArr = new MyArray(); // 1
 const myArr2 = new MyArray(); // 2
-
-arr.push(1); // Откуда берётся метод push() ?
