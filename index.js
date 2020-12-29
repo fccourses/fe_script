@@ -1,29 +1,22 @@
 'use strict';
 
-function createMultiplicationTable(limit) {
-  const table = {};
-  debugger;
-  for (let i = 1; i < limit; i++) {
-    for (let j = 1; j < limit; j++) {
-      table[`${i} * ${j} = `] = i * j;
-    }
-  }
+const t1 = 1;
+const t2 = 1;
 
-  return table;
-}
+const obj1 = {
+  test: 1,
+};
 
-/*  */
+const obj2 = {
+  test: 1,
+};
 
-/* Определить квартал года по текущему месяцу(1-12) */
+const link1 = obj1; // копирование по ссылке
 
-function getQuarter(monthNumber) {
-  return Math.ceil(monthNumber / 3);
-}
+console.log(link1 === obj1); //true
+console.log(link1 === obj2); //false
 
-/* 
-    Написать функцию:
-    Создать объект семья
-    Ключём будет имя родстенника
-    А значением будет информация о нём
-    Объект создавать через prompt
-*/
+link1.test2 = 'str';
+
+console.log(link1);
+console.log(obj1);
