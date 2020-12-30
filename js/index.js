@@ -1,34 +1,25 @@
 'use strict';
-
-/* 
-
-new Ladder(); - ЛЕСТНИЦА
-
-value - та ступенька на который сейчас
-
-up() - поднимает вас на одну ступеньку
-down() - опускает на одну
-showStep() - показывает на какой вы ступеньке
-
-
-Сделать это возможным:
-ladder.up().up().down().showStep(); // 1
-*/
-
-function Ladder() {
-  this.value = 0;
-
-  this.up = function () {
-    this.value++;
-    return this;
-  };
-  this.down = function () {
-    this.value--;
-    return this;
-  };
-
-  this.showStep = function () {
-    return this.value;
-  };
+/* Даны числа 4, -2, 5, 19, -130, 0, 10. 
+Найдите минимальное и максимальное число. */
+function getMinAndMaxNumbers() {
+  return [getMin(arguments), getMax(arguments)];
 }
-const l1 = new Ladder();
+
+function getMin(arr) {
+  let min = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  return min;
+}
+function getMax(arr) {
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
