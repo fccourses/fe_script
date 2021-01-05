@@ -1,17 +1,16 @@
 'use strict';
 
-function sum(a, b) {
-  return a + b;
+const users = [{}, {}, {}];
+/* 
+function square(currentNumber) {
+  console.log(currentNumber * currentNumber);
+  return currentNumber * currentNumber;
+}
+ */
+function addSubscribe(user) {
+  user.isSubscribed = true;
 }
 
-function withLog(fn) {
-  return function (...args) {
-    const result = fn(...args);
-    console.log(result);
-    return result;
-  };
-}
+users.forEach(addSubscribe);
 
-const sumWithLog = withLog(sum);
-
-sumWithLog(1,2)
+// const myArr = new MyArray(1, 2, 3, 4, 5);

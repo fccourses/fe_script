@@ -16,6 +16,12 @@ function MyArrayProto() {
     delete this[--this.length];
     return lastItem;
   };
+
+  this.forEach = function forEach(func) {
+    for (let i = 0; i < this.length; i++) {
+      func(this[i], i, this);
+    }
+  };
 }
 
 /* Объекты с данными */
@@ -29,5 +35,3 @@ function MyArray(...args) {
 
 /* Создаём прототип(связь между объектами). Наследование */
 MyArray.prototype = new MyArrayProto();
-
-const myArr = new MyArray(1, 2, 3, 4, 5); // 1
