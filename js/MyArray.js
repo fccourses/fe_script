@@ -40,6 +40,16 @@ function MyArrayProto() {
     }
     return true;
   };
+
+  this.filter = function filter(checkFunction) {
+    const result = new MyArray();
+    for (let i = 0; i < this.length; i++) {
+      if (checkFunction(this[i], i, this)) {
+        result.push(this[i]);
+      }
+    }
+    return result;
+  };
 }
 
 /* Объекты с данными */
