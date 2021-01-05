@@ -24,6 +24,10 @@ function isEven(number) {
 const res = nums.some(isEven);
 console.log(res);
 
-const myArr = new MyArray(1, 3, 5);
+const myArr = new MyArray(2, 2, 2, 2, 1);
 
 console.log(myArr.some(isEven));
+
+// ===========EVERY===========
+
+console.log(myArr.every(isEven)); //false

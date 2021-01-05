@@ -25,13 +25,20 @@ function MyArrayProto() {
 
   this.some = function some(func) {
     for (let i = 0; i < this.length; i++) {
-      const result = func(this[i], i, this);
-      
-      if (result) {
+      if (func(this[i], i, this)) {
         return true;
       }
     }
     return false;
+  };
+
+  this.every = function every(func) {
+    for (let i = 0; i < this.length; i++) {
+      if (!func(this[i], i, this)) {
+        return false;
+      }
+    }
+    return true;
   };
 }
 
