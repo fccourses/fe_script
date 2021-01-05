@@ -1,13 +1,17 @@
 'use strict';
 
-/**
- *
- * @param {function} howToSay
- * @param {string} whatToSay
- */
-function saySomething(how, whatToSay) {
-  how(whatToSay);
-  console.log(whatToSay)
+function sum(a, b) {
+  return a + b;
 }
 
-saySomething(console.log, 'WELCOME');
+function withLog(fn) {
+  return function (...args) {
+    const result = fn(...args);
+    console.log(result);
+    return result;
+  };
+}
+
+const sumWithLog = withLog(sum);
+
+sumWithLog(1,2)
