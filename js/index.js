@@ -14,3 +14,16 @@ function addSubscribe(user) {
 users.forEach(addSubscribe);
 
 // const myArr = new MyArray(1, 2, 3, 4, 5);
+//=========SOME===========================
+const nums = [1, 3, 5, 7, 10];
+
+function isEven(number) {
+  return number % 2 === 0;
+}
+
+const res = nums.some(isEven);
+console.log(res);
+
+const myArr = new MyArray(1, 3, 5);
+
+console.log(myArr.some(isEven));

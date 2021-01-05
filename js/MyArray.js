@@ -22,6 +22,17 @@ function MyArrayProto() {
       func(this[i], i, this);
     }
   };
+
+  this.some = function some(func) {
+    for (let i = 0; i < this.length; i++) {
+      const result = func(this[i], i, this);
+      
+      if (result) {
+        return true;
+      }
+    }
+    return false;
+  };
 }
 
 /* Объекты с данными */
