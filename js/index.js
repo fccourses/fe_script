@@ -1,10 +1,9 @@
 'use strict';
 
-function sum(a, b, ...rest) {
-  console.log(rest);
-}
+const numbers = [1, 1, 32, 112, 1243, 32, 4];
+const numbers2 = [1234, 1324, 43, 4356, 4];
 
-const sumArrowFE = (...rest) => {
+const sumArrowFE = (...rest) => { //rest operator
   let accumulator = null;
 
   rest.forEach((number) => {
@@ -14,8 +13,11 @@ const sumArrowFE = (...rest) => {
   return accumulator;
 };
 
-const sumReduce = (...rest) => {
+const sumReduce = (...rest) => { //rest operator
   return rest.reduce((accumulator, value) => {
     return accumulator + value;
   });
 };
+
+sumArrowFE(...numbers); //spread operator
+sumReduce(...numbers); //spread operator
