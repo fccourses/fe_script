@@ -1,20 +1,17 @@
 'use strict';
 
-function countDown(num) {
-  console.log(num);
-  if (num > 0) {
-    countDown(num - 1); // recursion
+const power = (num, exp) => {
+  debugger;
+  if (exp <= 1) {
+    return num; //basis
   }
-  return true; //basis
-}
-
-const logRange = (min, max) => {
-  if (min > max) {
-    return false;
-  }
-  console.log(min);
-  if (min < max) {
-    logRange(min + 1, max);
-  }
-  return true;
+  return num * power(num, exp - 1); //recursion
 };
+
+/* 
+Этапы рекурсии:
+
+  1) Функции вызываются рекурсивно в call stack
+  2) Доходим до базы
+  3) Функции начнут завершать свою работу
+*/
