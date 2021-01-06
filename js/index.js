@@ -4,7 +4,7 @@ function sum(a, b, ...rest) {
   console.log(rest);
 }
 
-const sumArrow = (...rest) => {
+const sumArrowFE = (...rest) => {
   let accumulator = null;
 
   rest.forEach((number) => {
@@ -12,4 +12,10 @@ const sumArrow = (...rest) => {
   });
 
   return accumulator;
+};
+
+const sumReduce = (...rest) => {
+  return rest.reduce((accumulator, value) => {
+    return accumulator + value;
+  });
 };
