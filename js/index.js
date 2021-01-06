@@ -1,15 +1,23 @@
 'use strict';
-function logItem(currentArticle, index) {
-  console.log(`${this.title} => ${index + 1}: ${currentArticle}`);
-}
 
-const newsPaper = {
-  title: 'FC daily',
-  articles: ['Test1', 'Heading1', 'String1', 'Article1', 'INTERESTING'],
-
-  showArticles() {
-    this.articles.forEach(logItem.bind(this));//v 2
-  },
+const t1 = function () {
+  console.log(arguments);
 };
 
-newsPaper.showArticles();
+const t2 = () => {
+  console.log(arguments); // error. arguments is not defined
+};
+
+t1(1, 1, 1, 1);
+
+// t2(1, 1, 1, 1);
+
+function sum() {
+  let res = null;
+
+  for (let i = 0; i < arguments.length; i++) {
+    res += arguments[i];
+  }
+
+  return res;
+}
