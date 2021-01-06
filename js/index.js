@@ -29,8 +29,8 @@ function createRandomUsers(amount = 1) {
       Math.ceil(Math.random() * 100), //age
       `email${i}@mail.com`, //email
       Math.random() > 0.5, //isMale
-      Math.random() > 0.5,
-      getRandomNationality()
+      Math.random() > 0.5, // isSubscribed
+      getRandomNationality() //nationality
     );
     db.push(user);
   }
@@ -43,7 +43,7 @@ function getRandomNationality() {
   return NATIONALITIES[Math.round(Math.random() * (max - min) + min)];
 }
 const users = createRandomUsers(100);
-console.table(users);
+// console.table(users);
 
 /* Получить массив полных имён с помощью метода map */
 const names = users.map(function (user) {
@@ -53,9 +53,28 @@ const names = users.map(function (user) {
 const adultUsers = users.filter(function (user) {
   return user.age >= ADULT_AGE;
 });
-console.table(adultUsers);
+// console.table(adultUsers);
 /*
 1.1 Зарандомить подписки у пользователей.
-1.2Получить массив только подписанных совершеннолетних 
+1.2 Получить массив только подписанных совершеннолетних 
 пользователей женского пола. 
+1.3 1.2 но только почты
 */
+
+const adultWoman = users.filter(function (user) {
+  return user.age >= ADULT_AGE && !user.isMale;
+});
+
+const mails = adultWoman.map(function (user) {
+  return user.email;
+});
+
+//ladder.up().up().up();
+
+const emails = users
+  .filter(function (user) {
+    return user.age >= ADULT_AGE && !user.isMale;
+  })
+  .map(function (user) {
+    return user.email;
+  });
