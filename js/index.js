@@ -1,17 +1,15 @@
 'use strict';
 
-function test() {
-  console.log(this); // undefined
-}
+const newsPaper = {
+  title: 'FC daily',
+  articles: ['Test1', 'Heading1', 'String1', 'Article1', 'INTERESTING'],
 
-const test2 = function () {
-  console.log(this); //undefined
+  showArticles() {
+    this.articles.forEach(function logItem(currentArticle, index) {
+      console.log(this)
+      console.log(`${this.title} => ${index + 1}: ${currentArticle}`);
+    });
+  },
 };
 
-const test3 = () => {
-  console.log(this); // !undefined
-};
-
-test();
-test2();
-test3();
+newsPaper.showArticles();
