@@ -1,38 +1,27 @@
 'use strict';
 
-function toUpperCase(str) {
-  let result = '';
-
-  for (let i = 0; i < str.length; i++) {
-    result += str[i].toUpperCase();
+/**
+ * 
+ * @param {*} num 
+ * @param {*} exp 
+ * @throws {TypeError}
+ * @throws {RangeError}
+ */
+const pow = (num, exp) => {
+  if (typeof num !== 'number' || typeof exp !== 'number') {
+    throw new TypeError();
   }
 
-  return result;
-}
+  if (exp <= 0) {
+    throw new RangeError('exp must be a positive number');
+  }
 
-function toJadenCase(str) {
-  return str
-    .split(' ')
-    .map((w) => {
-      if (w) {
-        return w[0].toUpperCase() + w.substring(1);
-      }
-    })
-    .join(' ');
-}
+  if (exp === 1) {
+    return num;
+  }
+  return pow(num, exp - 1) * num;
+};
 
-/*
-Нужно написать функцию, принимающую строку
-в качестве аргумента
-щающую количество гласных,
-которые содержатся в строке.
-Вернуть кол-во гласных.
-Гласными являются "a", "e", "i", "o", "u".
-Верхний регистр тоже считать.
-*/
+console.log(pow(2, -5));
 
-const countVowels = (string) =>
-  string
-    .toLowerCase()
-    .split('')
-    .filter((letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter)).length;
+console.log('copntinue');
