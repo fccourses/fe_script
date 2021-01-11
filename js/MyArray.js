@@ -31,6 +31,14 @@ function MyArrayProto() {
   this.concat = function (myArrInstance) {
     const result = new MyArray();
 
+    if (!MyArray.isMyArray(myArrInstance)) {
+      for (let i = 0; i < this.length; i++) {
+        result.push(this[i]);
+      }
+      result.push(myArrInstance);
+      return result;
+    }
+
     for (let i = 0; i < this.length; i++) {
       result.push(this[i]);
     }
