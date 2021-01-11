@@ -17,6 +17,41 @@ function MyArrayProto() {
     return lastItem;
   };
 
+  this.map = function (cb) {
+    const result = new MyArray();
+
+    for (let i = 0; i < this.length; i++) {
+      const cbResult = cb(this[i], i, this);
+      result.push(cbResult);
+    }
+
+    return result;
+  };
+
+  this.concat = function (myArrInstance) {
+    const result = new MyArray();
+
+    for (let i = 0; i < this.length; i++) {
+      result.push(this[i]);
+    }
+
+    for (let i = 0; i < myArrInstance.length; i++) {
+      result.push(myArrInstance[i]);
+    }
+
+    return result;
+  };
+
+  this.reverse = function () {
+    const copy = Object.assign(new MyArray(), this);
+
+    for (let i = 2; i < this.length; i++) {
+      this[i] = copy.pop();
+    }
+
+    return this;
+  };
+
   this.forEach = function forEach(func) {
     for (let i = 0; i < this.length; i++) {
       func(this[i], i, this);
@@ -61,5 +96,14 @@ function MyArray(...args) {
   }
 }
 
+MyArray.isMyArray = function isMyArray(obj) {
+  return obj instanceof MyArray;
+};
+
 /* Создаём прототип(связь между объектами). Наследование */
 MyArray.prototype = new MyArrayProto();
+
+const myArr = new MyArray(
+  { age: 18, name: 'test' },
+  { age: 21, name: 'test 2' }
+);
