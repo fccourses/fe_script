@@ -108,10 +108,7 @@ MyArray.isMyArray = function isMyArray(obj) {
   return obj instanceof MyArray;
 };
 
-/* Создаём прототип(связь между объектами). Наследование */
+/* Создать прототип(связь между объектами). Наследование */
 MyArray.prototype = new MyArrayProto();
 
-const myArr = new MyArray(
-  { age: 18, name: 'test' },
-  { age: 21, name: 'test 2' }
-);
+
