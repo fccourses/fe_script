@@ -16,14 +16,6 @@ class User {
   }
 }
 
-
-/* 
-  Реализовать класс Рабочий (Worker)
-  У рабочего есть имя, фамилия, ставка за день,
-  кол-во отработанных дней.
-  Метод, который будет возвращать з\п работника
-*/
-
 class Worker {
   constructor(name, surName, days = 0, rate = MIN_ZP) {
     this.name = name;
@@ -37,4 +29,44 @@ class Worker {
   }
 }
 
-const systemAdmin = new Worker('Petro', 'Testovich', 10, 800);
+/*
+Auto
+  Собственный вес (ownWeight)
+  fuel
+  getFullWeight()
+
+Fuel 
+  volume
+  density
+  getFuelWeight()
+*/
+
+class Fuel {
+  constructor(volume, density) {
+    this.volume = volume;
+    this.density = density;
+  }
+  getFuelWeight() {
+    return this.volume * this.density;
+  }
+}
+
+class Auto {
+  /**
+   *
+   * @param {string} model
+   * @param {number} ownWeight
+   * @param {Fuel} fuel
+   */
+  constructor(model, ownWeight, fuel) {
+    this.model = model;
+    this.ownWeight = ownWeight;
+    this.fuel = fuel;
+  }
+  getFullWeight() {
+    return this.ownWeight + this.fuel.getFuelWeight();
+  }
+}
+
+const benzin = new Fuel(50, 0.9);
+const vw = new Auto('passat', 1200, benzin);
