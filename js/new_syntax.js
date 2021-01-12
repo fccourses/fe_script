@@ -27,7 +27,7 @@ class User {
     return this.age >= 18;
   }
 }
-const u = new User('User', 'USer', 20);
+
 class Worker {
   /**
    *
@@ -70,7 +70,6 @@ class Worker {
     return this.rate * this.days;
   }
 }
-const w1 = new Worker('Vlad', 'Testtovich', 5, 1000);
 
 class Fuel {
   constructor(volume, density) {
@@ -116,3 +115,13 @@ class Friend {
     return this.amount + this.friend.amount;
   }
 }
+
+const u = {
+  _name: '',
+  set name(v) {
+    this._name = v;
+  },
+  get name() {
+    return this._name;
+  },
+};
