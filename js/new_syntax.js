@@ -17,17 +17,48 @@ class User {
 }
 
 class Worker {
+  /**
+   *
+   * @param {string} name
+   * @param {string} surName
+   * @param {number} days
+   * @param {number} rate
+   */
   constructor(name, surName, days = 0, rate = MIN_ZP) {
+    if (typeof days !== 'number') {
+      throw new TypeError('Parameters have unappropriate type');
+    }
+    if (days < 0 || days > 31) {
+      throw new RangeError();
+    }
+
     this.name = name;
     this.surName = surName;
     this.rate = rate;
     this.days = days;
   }
 
+  set rate(newRate) {
+    // setter - специальный метод для присвоения значения
+    if (typeof newRate !== 'number') {
+      throw new TypeError('Parameter has unappropriate type');
+    }
+    if (newRate < 0) {
+      throw new RangeError();
+    }
+    this._rate = newRate;
+  }
+
+  get rate() {
+    // getter - специальный метод для получения значения
+    return this._rate;
+  }
+
   getSalary() {
     return this.rate * this.days;
   }
 }
+const w1 = new Worker('Vlad', 'Testtovich', 5, 1000);
 
 class Fuel {
   constructor(volume, density) {
