@@ -26,6 +26,10 @@ class User {
   get isAdult() {
     return this.age >= 18;
   }
+
+  static isUser(obj) {
+    return obj instanceof User;
+  }
 }
 
 class Worker {
