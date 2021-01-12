@@ -7,15 +7,27 @@ class User {
     this.age = age;
   }
 
-  getFullName() {
+  set fullName(newFullName) {
+    if (typeof newFullName !== 'string') {
+      throw new TypeError();
+    }
+    const nameArray = newFullName.split(' ');
+    if (nameArray.length !== 2) {
+      throw new RangeError();
+    }
+    this.name = nameArray[0];
+    this.surName = nameArray[1];
+  }
+
+  get fullName() {
     return `${this.name} ${this.surName}`;
   }
 
-  isAdult() {
+  get isAdult() {
     return this.age >= 18;
   }
 }
-
+const u = new User('User', 'USer', 20);
 class Worker {
   /**
    *
@@ -35,7 +47,7 @@ class Worker {
     this.name = name;
     this.surName = surName;
     this.rate = rate;
-    this.days = days;
+    this.days = days; // task: реализовать getter/setter
   }
 
   set rate(newRate) {
