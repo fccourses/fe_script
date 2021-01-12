@@ -29,18 +29,6 @@ class Worker {
   }
 }
 
-/*
-Auto
-  Собственный вес (ownWeight)
-  fuel
-  getFullWeight()
-
-Fuel 
-  volume
-  density
-  getFuelWeight()
-*/
-
 class Fuel {
   constructor(volume, density) {
     this.volume = volume;
@@ -68,5 +56,20 @@ class Auto {
   }
 }
 
-const benzin = new Fuel(50, 0.9);
-const vw = new Auto('passat', 1200, benzin);
+class Friend {
+  /**
+   *
+   * @param {string} name
+   * @param {number} appleAmount
+   * @param {Friend} friend
+   */
+  constructor(name, appleAmount, friend) {
+    this.name = name;
+    this.amount = appleAmount;
+    this.friend = friend;
+  }
+
+  countAllApples() {
+    return this.amount + this.friend.amount;
+  }
+}
