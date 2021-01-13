@@ -1,41 +1,50 @@
-class User {
-  constructor(name, surname, age, isBanned) {
+class Squirrel {
+  constructor(name, color) {
     this.name = name;
-    this.surname = surname;
-    this.age = age;
-    this.isBanned = isBanned;
+    this.color = color;
   }
-
-  getFullName() {
-    return `${this.name} ${this.surname}`;
+  eat() {
+    return `${this.name} is eating`;
+  }
+  climb() {
+    return `${this.name} is climbing`;
   }
 }
 
-/* Admin -  у него есть всё, что у User
-    ban(user);
+class FlyingSquirrel extends Squirrel {
+  constructor(name, color, distance) {
+    super(name, color);
+    this.distance = distance;
+  }
+  fly() {
+    return `${this.name} is flying`;
+  }
+}
+
+/* 
+СказочнаяБелка
+песни: string[]
+
+песниПеть() - Логируете все песни по циклу
+танцевать() - белка танцет
+
 */
 
-class Admin extends User {
-  constructor(name, surname, age, email) {
-    super(name, surname, age, false);
-    this.email = email;
+class FableSquirrel extends FlyingSquirrel {
+  constructor(name, color, distance, songs) {
+    super(name, color, distance);
+    this.songs = songs;
   }
-
-  ban(user) {
-    user.isBanned = true;
+  dance() {
+    return `${this.name} is dancing squirrel`;
   }
-
-  unBan(user) {
-    user.isBanned = false;
-  }
-
-  toggleBan(user) {
-    if (user instanceof User) {
-      user.isBanned = !user.isBanned;
-      return;
-    }
-    throw new TypeError();
+  sing() {
+    return `Эта белка поет такие песни: ${this.songs.join('-')}`
   }
 }
-const u = new User();
-const a = new Admin();
+
+const squirrel = new Squirrel('TEst', 'red');
+const flyingSquirrel = new FlyingSquirrel('Sq', 'black', 120);
+
+const songs = ['str1', 'str2', 'song3', 'tesat4'];
+const fableSquirrel = new FableSquirrel('Pushkin', 'rainbow', 800, songs);
