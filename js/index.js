@@ -1,50 +1,51 @@
-class Squirrel {
-  constructor(name, color) {
-    this.name = name;
-    this.color = color;
-  }
-  eat() {
-    return `${this.name} is eating`;
-  }
-  climb() {
-    return `${this.name} is climbing`;
-  }
-}
-
-class FlyingSquirrel extends Squirrel {
-  constructor(name, color, distance) {
-    super(name, color);
-    this.distance = distance;
-  }
-  fly() {
-    return `${this.name} is flying`;
-  }
-}
-
-/* 
-СказочнаяБелка
-песни: string[]
-
-песниПеть() - Логируете все песни по циклу
-танцевать() - белка танцет
-
+/*  
+  1. Инкапсуляция +
+  2. Наследование +
+  3. Полиморфизм +
 */
 
-class FableSquirrel extends FlyingSquirrel {
-  constructor(name, color, distance, songs) {
-    super(name, color, distance);
-    this.songs = songs;
+class Figure {
+  constructor(name) {
+    this.name = name;
   }
-  dance() {
-    return `${this.name} is dancing squirrel`;
+  getArea() {}
+}
+
+class Triangle extends Figure {
+  constructor(a, b, angle) {
+    super('Triangle');
+    this._a = a;
+    this._b = b;
+    this._angle = angle;
   }
-  sing() {
-    return `Эта белка поет такие песни: ${this.songs.join('-')}`
+  getArea() {
+    // override; переопределили метод getArea
+    return this._a * this._b * Math.sin(this._angle * (180 / Math.PI));
   }
 }
 
-const squirrel = new Squirrel('TEst', 'red');
-const flyingSquirrel = new FlyingSquirrel('Sq', 'black', 120);
+class Square extends Figure {
+  constructor(a) {
+    super('Square');
+    this.a = a;
+  }
 
-const songs = ['str1', 'str2', 'song3', 'tesat4'];
-const fableSquirrel = new FableSquirrel('Pushkin', 'rainbow', 800, songs);
+  getArea() {
+    // override; переопределили метод getArea
+    return this.a * this.a;
+  }
+}
+
+const t = new Triangle(10, 12, 60);
+const s = new Square(15);
+
+/**
+ *
+ * @param {Figure} figure
+ */
+function getFigureArea(figure) {
+  if (figure instanceof Figure) {
+    return figure.getArea();
+  }
+  throw new TypeError();
+}
