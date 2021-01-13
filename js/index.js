@@ -4,11 +4,29 @@
   3. Полиморфизм +
 */
 
+function getFigureArea(figure) {
+  if (figure instanceof Figure) {
+    return figure.getArea();
+  }
+  throw new TypeError();
+}
+
 class Figure {
   constructor(name) {
     this.name = name;
   }
   getArea() {}
+}
+
+class Circle extends Figure {
+  constructor(radius) {
+    super('Circle');
+    this._radius = radius;
+  }
+
+  getArea() {
+    return this._radius * Math.PI * this._radius;
+  }
 }
 
 class Triangle extends Figure {
@@ -38,14 +56,3 @@ class Square extends Figure {
 
 const t = new Triangle(10, 12, 60);
 const s = new Square(15);
-
-/**
- *
- * @param {Figure} figure
- */
-function getFigureArea(figure) {
-  if (figure instanceof Figure) {
-    return figure.getArea();
-  }
-  throw new TypeError();
-}
