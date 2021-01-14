@@ -1,23 +1,28 @@
-/* Объект с логикой */
-function MyArrayProto() {
-  this.push = function push() {
+class MyArray {
+  constructor() {
+    this.length = 0;
+    for (let i = 0; i < arguments.length; i++) {
+      this.push(arguments[i]);
+    }
+  }
+  push() {
     /* Обходим список аргументов до тех пор, пока у него есть аргументы */
     for (let i = 0; i < arguments.length; i++) {
       this[this.length++] = arguments[i];
     }
     return this.length;
-  };
+  }
 
-  this.pop = function () {
+  pop() {
     if (this.length === 0) {
       return;
     }
     const lastItem = this[this.length - 1];
     delete this[--this.length];
     return lastItem;
-  };
+  }
 
-  this.map = function (cb) {
+  map(cb) {
     const result = new MyArray();
 
     for (let i = 0; i < this.length; i++) {
@@ -26,9 +31,9 @@ function MyArrayProto() {
     }
 
     return result;
-  };
+  }
 
-  this.concat = function (myArrInstance) {
+  concat(myArrInstance) {
     const result = new MyArray();
 
     if (!MyArray.isMyArray(myArrInstance)) {
@@ -48,9 +53,9 @@ function MyArrayProto() {
     }
 
     return result;
-  };
+  }
 
-  this.reverse = function () {
+  reverse() {
     const copy = Object.assign(new MyArray(), this);
 
     for (let i = 2; i < this.length; i++) {
@@ -58,33 +63,33 @@ function MyArrayProto() {
     }
 
     return this;
-  };
+  }
 
-  this.forEach = function forEach(func) {
+  forEach(func) {
     for (let i = 0; i < this.length; i++) {
       func(this[i], i, this);
     }
-  };
+  }
 
-  this.some = function some(func) {
+  some(func) {
     for (let i = 0; i < this.length; i++) {
       if (func(this[i], i, this)) {
         return true;
       }
     }
     return false;
-  };
+  }
 
-  this.every = function every(func) {
+  every(func) {
     for (let i = 0; i < this.length; i++) {
       if (!func(this[i], i, this)) {
         return false;
       }
     }
     return true;
-  };
+  }
 
-  this.filter = function filter(checkFunction) {
+  filter(checkFunction) {
     const result = new MyArray();
     for (let i = 0; i < this.length; i++) {
       if (checkFunction(this[i], i, this)) {
@@ -92,23 +97,33 @@ function MyArrayProto() {
       }
     }
     return result;
-  };
-}
+  }
 
-/* Объекты с данными */
-function MyArray(...args) {
-  this.length = 0;
+  flat(depth = 1) {
+    let result = new MyArray();
 
-  for (let i = 0; i < arguments.length; i++) {
-    this.push(arguments[i]);
+    /*  for (let i = 0; i < this.length; i++) {
+      if (MyArray.isMyArray(this[i]) && depth) {
+        result = result.concat(this[i].flat(depth - 1));
+      } else if (this[i] !== undefined) {
+        result.push(this[i]);
+      }
+    } */
+
+    this.forEach((item) => {
+      if (MyArray.isMyArray(item) && depth) {
+        result = result.concat(item.flat(depth - 1));
+      } else if (item !== undefined) {
+        result.push(item);
+      }
+    });
+
+    return result;
+  }
+
+  static isMyArray(obj) {
+    return obj instanceof MyArray;
   }
 }
 
-MyArray.isMyArray = function isMyArray(obj) {
-  return obj instanceof MyArray;
-};
-
-/* Создать прототип(связь между объектами). Наследование */
-MyArray.prototype = new MyArrayProto();
-
-
+const arr2 = new MyArray(0, undefined, new MyArray(1, 1, new MyArray(2, 2), 1));
