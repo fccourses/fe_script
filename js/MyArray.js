@@ -102,14 +102,6 @@ class MyArray {
   flat(depth = 1) {
     let result = new MyArray();
 
-    /*  for (let i = 0; i < this.length; i++) {
-      if (MyArray.isMyArray(this[i]) && depth) {
-        result = result.concat(this[i].flat(depth - 1));
-      } else if (this[i] !== undefined) {
-        result.push(this[i]);
-      }
-    } */
-
     this.forEach((item) => {
       if (MyArray.isMyArray(item) && depth) {
         result = result.concat(item.flat(depth - 1));
