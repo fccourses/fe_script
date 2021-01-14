@@ -1,23 +1,22 @@
-class Friend {
-  /**
-   *
-   * @param {number} count
-   * @param {Friend[]} friends
-   */
-  constructor(count = 0, friends = []) {
-    this.count = count;
-    this.friends = friends;
-  }
+/* 
 
-  getCount() {
-    if (this.friends.length) {
-      return this.friends.reduce(
-        (result, friend) => result + friend.getCount(),
-        this.count
-      );
-    }
-    return this.count; // basic.
-  }
-}
+1. string - ''
+2. number - NaN, numebers, Infiniti, - Infinity, -0, +0
+3. bool - true, false
+4. symbol - ???
+5. undefined - undefined
+6. null - null
+7. BigInt - 100n
 
-const friend = new Friend(1);
+8. Object - {*}
+
+*/
+
+const mySymbol = Symbol('Symbol.Important');
+const mySymbol2 = Symbol('Просто метка для людей.');
+
+const object = {
+  login: 'Vasy12345',
+  test: 'wrong way',
+  [mySymbol]: 100,
+};
