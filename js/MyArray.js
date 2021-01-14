@@ -1,3 +1,20 @@
+class MyArrayIterator {
+  /**
+   *
+   * @param {MyArray} myArray
+   */
+  constructor(myArray) {
+    this.array = myArray;
+    this.currentValue = 0;
+  }
+  next() {
+    return {
+      value: this.array[this.currentValue++],
+      done: this.currentValue > this.array.length,
+    };
+  }
+}
+
 class MyArray {
   constructor() {
     this.length = 0;
@@ -115,6 +132,10 @@ class MyArray {
 
   static isMyArray(obj) {
     return obj instanceof MyArray;
+  }
+
+  [Symbol.iterator]() {
+    return new MyArrayIterator(this);
   }
 }
 
