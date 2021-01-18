@@ -18,18 +18,18 @@ const nums = [
 
 const sortedNums = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25];
 
-const binarySearch = (arr, value) => {
+const numGuesser = () => {
   // O(log n)
 
   let start = 0;
-  let end = arr.length - 1;
+  let end = 100;
   let middle = Math.round((start + end) / 2);
 
   while (true) {
-    if (arr[middle] === value) {
+    if (confirm(`${middle} ?`)) {
       return middle;
     }
-    if (arr[middle] > value) {
+    if (confirm(`${middle} > num  ?`)) {
       end = middle;
       middle = Math.ceil((end + start) / 2);
     } else {
