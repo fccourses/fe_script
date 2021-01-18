@@ -67,3 +67,4 @@ const list = new LinkedList(1, false, 3, 'Test', 5, true);
 for (const item of list) {
   console.log(item);
 }
+

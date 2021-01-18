@@ -1,26 +1,62 @@
-// const arr = [1, 2, 3, 4, 5, 6];
+const nums = [
+  123,
+  4,
+  1,
+  563,
+  1234,
+  457,
+  344657,
+  58,
+  678,
+  456,
+  657,
+  34,
+  68766,
+  3,
+  34463,
+];
 
-// for (const number of arr) {
-//   console.log(number);
-// }
+const sortedNums = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25];
 
-// console.log(...arr);
+const binarySearch = (arr, value) => {
+  // O(log n)
 
-// const myArr = new MyArray(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  let start = 0;
+  let end = arr.length - 1;
+  let middle = Math.round((start + end) / 2);
 
-// function sum(...args) {
-//   let result = 0;
-//   for (const num of args) {
-//     result += num;
-//   }
-//   return result;
-// }
+  while (true) {
+    if (arr[middle] === value) {
+      return middle;
+    }
+    if (arr[middle] > value) {
+      end = middle;
+      middle = Math.ceil((end + start) / 2);
+    } else {
+      start = middle;
+      middle = Math.floor((end + start) / 2);
+    }
+  }
+};
 
-// /* 
-// Теперь доступно:
-// */
-// console.log(...myArr);
+const linearSearch = (arr, value) => {
+  // O(n) - линейная
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === value) {
+      return i;
+    }
+  }
 
-// for (const num of myArr) {
-//   console.log(num);
-// } 
+  return -1;
+};
+
+const createMultiplicationtable = (limit) => {
+  // O(n^2) - квадратичная
+  const table = [];
+  for (let i = 1; i < limit; i++) {
+    for (let j = 1; j < limit; j++) {
+      table.push(`${i}*${j} = ${i * j}`);
+    }
+  }
+  return table;
+};
