@@ -17,15 +17,10 @@ vocabulary.set('queue', 'очередь');
 const userInput =
   'Cat bite dog Set cucuMber test kernel QuEue Algorithm table screen';
 
-const translate = (str) => {
-  const lowerStr = str.toLowerCase();
-  const wordArray = lowerStr.split(' ');
-  const translatedWords = wordArray.map((word) => {
-    if (vocabulary.has(word)) {
-      return vocabulary.get(word);
-    }
-    return word;
-  });
-  const translatedString = translatedWords.join(' ');
-  return translatedString;
+const translate = (str, separator = ' ') => {
+  return str
+    .toLowerCase()
+    .split(separator)
+    .map((word) => (vocabulary.has(word) ? vocabulary.get(word) : word))
+    .join(separator);
 };
