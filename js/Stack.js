@@ -57,27 +57,20 @@ const checkSequence = (str, options) => {
   const closeBraces = Object.values(braces);
 
   for (const symbol of str) {
-    /* 1. Определить открывающаяся скобка. Запушить в стек. */
     if (braces[symbol]) {
       stack.push(symbol);
       continue;
     }
-    /* 2. Определить пуст ли стек. Вернуть false. */
+    
     if (closeBraces.includes(symbol) && stack.isEmpty) {
       return false;
     }
-    /* 3. Определяет закрывающаююся скобку и её тип. Удаляет из стека */
-    /* 
-    3.1 В стеке лежат открывающиеся скобки. Стек НЕ пуст.
-    3.2 Текущий обрабатываемый элемент должен быть закрывающейся скобкой того же типа.
-    3.3 В стеке всегда лежат открывающиеся скобки.
-     Ключи в объекте braces тоже открывающиеся скобки.
-     */
-    const lastItemFromStack = stack.pick(); // взяли открывающую
-    const correctCloseBrace = braces[lastItemFromStack];
-    if (symbol === correctCloseBrace) {
+    
+    if (symbol === braces[stack.pick()]) {
       stack.pop();
-    } else if (braces[symbol] || closeBraces.includes(symbol)) {
+    } 
+    
+    if (braces[symbol] || closeBraces.includes(symbol)) {
       return false;
     }
   }
