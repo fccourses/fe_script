@@ -39,4 +39,8 @@ const user2 = {
 const johnMsgs = ['2134', 'wsefsef', 'sefsdfsdfsef'];
 const janeMsgs = ['werfsg', 'sdfsdf', 'sdfsdfs', 'sdfsdfsd'];
 
+const msgsToUsers = new Map();
+msgsToUsers.set(user1.id, johnMsgs);
+msgsToUsers.set(user2.id, janeMsgs);
 
+const getUserMsgs = (userId) => msgsToUsers.get(userId);
