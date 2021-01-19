@@ -52,7 +52,7 @@ const options = {
 };
 
 const checkSequence = (str, options) => {
-  const stack = new Stack();
+  const stack = new Stack(str.length);
   const braces = options.braces;
   const closeBraces = Object.values(braces);
 
