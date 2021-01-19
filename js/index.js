@@ -24,3 +24,19 @@ const translate = (str, separator = ' ') => {
     .map((word) => (vocabulary.has(word) ? vocabulary.get(word) : word))
     .join(separator);
 };
+
+const user1 = {
+  id: 1,
+  name: 'John',
+  age: 18,
+};
+const user2 = {
+  id: 2,
+  name: 'Jane',
+  age: 24,
+};
+
+const johnMsgs = ['2134', 'wsefsef', 'sefsdfsdfsef'];
+const janeMsgs = ['werfsg', 'sdfsdf', 'sdfsdfs', 'sdfsdfsd'];
+
+
