@@ -67,9 +67,14 @@ const rusWords = [...vocabulary.values()];
  Первый параметр функции - создаваемая строка.
  Второй параметр - используемая строка.
  Функция возвращает Boolean.
-*/
+ 
+  1. Создаёте словарь: 
+    буква -ключ,
+    кол-во этих букв в строке - значение.
+  2.Таких словарей 2.
+  3. Сравнить размер словарей.
+  4. Сравнить содержание этих словарей.
 
-/*
  compare('test', 'sett'); // true
  compare('love', 'evol'); // true
 
@@ -81,3 +86,33 @@ const rusWords = [...vocabulary.values()];
  compare('rfv','qwe') // false
 
 */
+
+const createVocabulary = (str) => {
+  const mapToStr = new Map();
+  for (const letter of str) {
+    if (mapToStr.has(letter)) {
+      const letterCount = mapToStr.get(letter);
+      mapToStr.set(letter, letterCount + 1);
+      continue;
+    }
+    mapToStr.set(letter, 1); // первый раз когда мы встретили букву
+  }
+  return mapToStr;
+};
+
+const compare = (str1, str2) => {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  const mapToStr1 = createVocabulary(str1);
+  const mapToStr2 = createVocabulary(str2);
+  if (mapToStr1.size !== mapToStr2.size) {
+    return false;
+  }
+  for (const key of mapToStr1.keys()) {
+    if (mapToStr1.get(key) !== mapToStr2.get(key)) {
+      return false;
+    }
+  }
+  return true;
+};
