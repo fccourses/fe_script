@@ -56,3 +56,13 @@ function getFullName({ firstname, lastname }) {
 }
 
 // getMonitorInfo(monitor){}
+function getMonitorInfo({
+  color,
+  dpi,
+  sizes: {
+    width: { value: width },
+    height: { value: height },
+  },
+}) {
+  return `Color: ${color}, dpi: ${dpi}, width: ${width}, height: ${height}`;
+}

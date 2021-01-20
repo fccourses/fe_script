@@ -51,9 +51,8 @@ const options = {
   isStrict: false,
 };
 
-const checkSequence = (str, options) => {
+const checkSequence = (str, { braces, ...options }) => {
   const stack = new Stack(str.length);
-  const braces = options.braces;
   const closeBraces = Object.values(braces);
 
   for (const symbol of str) {
@@ -61,15 +60,15 @@ const checkSequence = (str, options) => {
       stack.push(symbol);
       continue;
     }
-    
+
     if (closeBraces.includes(symbol) && stack.isEmpty) {
       return false;
     }
-    
+
     if (symbol === braces[stack.pick()]) {
       stack.pop();
-    } 
-    
+    }
+
     if (braces[symbol] || closeBraces.includes(symbol)) {
       return false;
     }
