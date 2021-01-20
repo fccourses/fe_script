@@ -116,3 +116,12 @@ const compare = (str1, str2) => {
   }
   return true;
 };
+
+const newMap = new Map([
+  ['key1', 'value1'],
+  ['key2', 'value2'],
+  ['key3', 'value3'],
+  ['key4', 'value4'],
+]);
+
+const newMap2 = new Map(newMap);
