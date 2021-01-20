@@ -23,20 +23,11 @@ const monitor = {
   color: 'black',
   dpi: 250,
   resolution: '4K',
-
 };
-
 // console.log(monitor.sizes.height.value);
 
-function getDiagonal(monitor) {
-  monitor.sizes.height.value;
-  monitor.sizes.width.value;
-}
-
 // const monitorBright = monitor.brightness;
-
 const { resolution, contrast, model } = monitor;
-
 /* BAD!
 const { sizes } = monitor;
 const { height, width} = sizes;
@@ -48,3 +39,20 @@ const {
     width: { value: widthValue },
   },
 } = monitor;
+
+const { color, ...restOfMonitor } = monitor;
+
+// Деструктуризация массивов
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// const firstNumber = nums[0];
+const [firstNumber, , thirdNumber, , fifthNumber, ...restOfNums] = nums;
+
+// Деструктуризация входных параметров
+
+function getFullName({ firstname, lastname }) {
+  return `${firstname} ${lastname}`;
+}
+
+// getMonitorInfo(monitor){}
